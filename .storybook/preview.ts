@@ -2,6 +2,8 @@ import { type Preview, setup } from '@storybook/vue3'
 import { fakerEN as faker } from '@faker-js/faker'
 import {  VueQueryPlugin } from '@tanstack/vue-query'
 import { initialize, mswLoader } from 'msw-storybook-addon'
+import { demoModeLoader } from './interaction'
+import { userEvent } from '@storybook/test'
 
 initialize({
   quiet: false,
@@ -27,7 +29,7 @@ const preview: Preview = {
       },
     },
   },
-  loaders: [mswLoader],
+  loaders: [mswLoader, demoModeLoader],
 
   beforeEach: async () => {
     console.log('beforeEach')
@@ -35,7 +37,11 @@ const preview: Preview = {
   },
 }
 
-
+declare module '@storybook/csf' {
+  interface StoryContext {
+    userEvent: ReturnType<typeof userEvent.setup>;
+  }
+}
 
 setup(app => {
   app.use(VueQueryPlugin)
