@@ -1,7 +1,7 @@
 import { expect, waitFor, within } from '@storybook/test'
 import type { Meta, StoryObj } from '@storybook/vue3'
 
-import MyPage from './Component.vue'
+import Component from './Component.vue'
 import { getPetsMock } from '@/api/pets/pets.msw'
 
 function sleep(ms: number): Promise<void> {
@@ -9,21 +9,21 @@ function sleep(ms: number): Promise<void> {
 }
 
 const meta = {
-  component: MyPage,
+  component: Component,
   render: args => ({
-    components: { MyPage },
+    components: { Component },
     setup: () => {
       return { args }
     },
     template: `
-      <my-page v-bind="args" /> `,
+      <Component v-bind="args" /> `,
   }),
   parameters: {
     msw: {
       handlers: [getPetsMock()],
     },
   },
-} satisfies Meta<typeof MyPage>
+} satisfies Meta<typeof Component>
 
 export default meta
 type Story = StoryObj<typeof meta>
