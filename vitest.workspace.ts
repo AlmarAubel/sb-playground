@@ -9,7 +9,7 @@ export default defineWorkspace([
     extends: 'vite.config.ts',
     plugins: [
       // See options at: https://storybook.js.org/docs/writing-tests/vitest-plugin#storybooktest
-      storybookTest({ configDir: '.storybook' }),
+      storybookTest({ configDir: '.storybook', tags:{skip: ['flaky']} }),
       storybookVuePlugin(),
     ],
     test: {
@@ -20,8 +20,9 @@ export default defineWorkspace([
         headless: true,
         name: 'chromium',
         provider: 'playwright',
+        isolate:true,
+        fileParallelism:false
       },
-
       // Make sure to adjust this pattern to match your stories files.
       include: ['**/*.stories.?(m)[jt]s?(x)'],
       setupFiles: ['.storybook/vitest.setup.ts'],
