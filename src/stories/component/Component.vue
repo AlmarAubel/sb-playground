@@ -1,16 +1,16 @@
 <template>
-
+  <Button >Push me!</Button>
+  <Button label="Submit" />
+  bd
   <p>
-    {{ petData?.name }}
+    {{ props.id }}
   </p>
 
 </template>
 
 <script lang="ts" setup>
-import { useShowPetById } from '@/api/pets/pets'
-const props = defineProps<{id:string}>()
-const { data: petData } = useShowPetById(props.id, {
-  query: { select: d => d.data },
 
-})
+import Button from 'primevue/button';
+const props = defineProps<{id:string}>()
+
 </script>

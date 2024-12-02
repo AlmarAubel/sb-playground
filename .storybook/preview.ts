@@ -2,6 +2,9 @@ import { type Preview, setup } from '@storybook/vue3'
 import { fakerEN as faker } from '@faker-js/faker'
 import {  VueQueryPlugin } from '@tanstack/vue-query'
 import { initialize, mswLoader } from 'msw-storybook-addon'
+import { createPinia } from 'pinia'
+import PrimeVue from 'primevue/config'
+import Aura from '@primevue/themes/aura'
 
 initialize({
   quiet: false,
@@ -39,5 +42,11 @@ const preview: Preview = {
 
 setup(app => {
   app.use(VueQueryPlugin)
+  app.use(createPinia())
+  app.use(PrimeVue, {
+    theme: {
+      preset: Aura
+    }
+  });
 })
 export default preview
