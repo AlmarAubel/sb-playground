@@ -7,7 +7,7 @@ import PrimeVue from 'primevue/config'
 import Aura from '@primevue/themes/aura'
 
 initialize({
-  quiet: false,
+  quiet: process.env.NODE_ENV === 'test',
   onUnhandledRequest: ({ url, method }) => {
     const pathname = new URL(url).pathname
     if (pathname.startsWith('/pets')) {
@@ -33,7 +33,6 @@ const preview: Preview = {
   loaders: [mswLoader],
 
   beforeEach: async () => {
-    console.log('beforeEach')
     faker.seed(2)
   },
 }
