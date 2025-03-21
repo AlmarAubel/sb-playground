@@ -7,13 +7,13 @@
     "nightwatch.conf.*",
     "playwright.config.*"
   ],
-  "compilerOptions": {
+  "compilerOptions": {    
     "composite": true,
     "noEmit": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
 
     "module": "ESNext",
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node16",
     "types": ["node"]
   }
 }

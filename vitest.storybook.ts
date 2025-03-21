@@ -15,15 +15,11 @@ export default mergeConfig(
       name: 'storybook',
       isolate: true,
       browser: {
-        enabled: true,
-        headless: true,
-        name: 'chromium',
         provider: 'playwright',
-        isolate: true,
-        fileParallelism: false,
+        enabled: true,
+        instances: [{ browser: 'chromium' }],
+        headless: true,
       },
-      // Make sure to adjust this pattern to match your stories files.
-      include: ['./src/**/*.stories.?(m)[jt]s?(x)'],
       setupFiles: ['.storybook/vitest.setup.ts'],
     },
   }),

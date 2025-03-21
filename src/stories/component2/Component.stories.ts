@@ -52,7 +52,7 @@ export const Case1WithoutStep: Story = {
   args: { id: '2' },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement)
-
+console.log("d32");
     const text = await waitFor(() => canvas.getByText(/slurp/i), {
       timeout: 10000,
     })

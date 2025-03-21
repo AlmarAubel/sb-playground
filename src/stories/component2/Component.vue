@@ -2,7 +2,7 @@
   <p>
     {{ petData?.name }}
   </p>
-d
+
   counter: {{count}}
 </template>
 

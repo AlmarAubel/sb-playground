@@ -1,10 +1,10 @@
-import { type Preview, setup } from '@storybook/vue3'
 import { fakerEN as faker } from '@faker-js/faker'
 import {  VueQueryPlugin } from '@tanstack/vue-query'
 import { initialize, mswLoader } from 'msw-storybook-addon'
 import { createPinia } from 'pinia'
 import PrimeVue from 'primevue/config'
 import Aura from '@primevue/themes/aura'
+import {  type Preview, setup } from '@storybook/vue3';
 
 initialize({
   quiet: process.env.NODE_ENV === 'test',
@@ -31,13 +31,15 @@ const preview: Preview = {
     },
   },
   loaders: [mswLoader],
-
   beforeEach: async () => {
     faker.seed(2)
   },
 }
 
 
+
+
+ console.time('setup');
 
 setup(app => {
   app.use(VueQueryPlugin)
@@ -48,4 +50,5 @@ setup(app => {
     }
   });
 })
+console.timeEnd('setup');
 export default preview
