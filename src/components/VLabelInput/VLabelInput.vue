@@ -18,7 +18,7 @@ const max4xl = computed(() => width.value < 500);
       :class="[
         'tw-flex',
         {
-          'tw-flex-row tw-mt-6': max4xl,
+          'tw-mt-6': max4xl,
           'tw-items-center tw-gap-[1.875rem]': !max4xl,
         },
       ]"
