@@ -2,7 +2,7 @@ import { type Preview, setup } from '@storybook/vue3'
 import { fakerEN as faker } from '@faker-js/faker'
 import {  VueQueryPlugin } from '@tanstack/vue-query'
 import { initialize, mswLoader } from 'msw-storybook-addon'
-
+import '../src/assets/main.css'
 initialize({
   quiet: false,
   onUnhandledRequest: ({ url, method }) => {
