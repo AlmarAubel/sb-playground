@@ -1,4 +1,4 @@
-import { type Preview, setup } from '@storybook/vue3'
+import { type Preview, setup } from '@storybook/vue3-vite'
 import { fakerEN as faker } from '@faker-js/faker'
 import {  VueQueryPlugin } from '@tanstack/vue-query'
 import { initialize, mswLoader } from 'msw-storybook-addon'

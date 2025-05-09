@@ -1,6 +1,6 @@
-import { type Meta, type StoryObj } from '@storybook/vue3';
+import { type Meta, type StoryObj } from '@storybook/vue3-vite';
 import VLabelInput from './VLabelInput.vue';
-import { userEvent } from '@storybook/test';
+import { userEvent } from 'storybook/test';
 
 const meta: Meta<typeof VLabelInput> = {
   component: VLabelInput,
